@@ -12,21 +12,21 @@ namespace Specifications
         static void Main(string[] args)
         {
             var table = GetTable(args[0]);
-            int? neutral = FindNeutral(table);
-            bool hasNeutral = (neutral != null);
+            int? identityElem = FindIdentity(table);
+            bool hasIdentity = (identityElem != null);
             bool associative = IsAssociative(table);
             bool commutative = IsCommutative(table);
-            bool allElementsHasInvert = AreAllElementsHasInvert(table, neutral);
+            bool allElementsHasInverse = AreAllElementsHasInverse(table, identityElem);
 
             if (!associative)
             {
                 Console.WriteLine("Magma");
             }
-            else if (!hasNeutral)
+            else if (!hasIdentity)
             {
                 Console.WriteLine("Semigroup");
             }
-            else if (!allElementsHasInvert)
+            else if (!allElementsHasInverse)
             {
                 if (!commutative)
                 {
@@ -80,7 +80,7 @@ namespace Specifications
             return result;
         }
 
-        static int? FindNeutral(int[][] table)
+        static int? FindIdentity(int[][] table)
         {
             for (int i = 0; i < table.Length; ++i)
             {
@@ -97,7 +97,7 @@ namespace Specifications
             return null;
         }
 
-        static bool AreAllElementsHasInvert(int[][] table, int? neutral)
+        static bool AreAllElementsHasInverse(int[][] table, int? neutral)
         {
             if (neutral == null)
             {
