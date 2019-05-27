@@ -84,12 +84,12 @@ namespace Specifications
         {
             for (int i = 0; i < table.Length; ++i)
             {
-                bool hasNeutral = true;
+                bool hasIdentity = true;
                 for (int j = i + 1; j < table.Length; ++j)
                 {
-                    hasNeutral = hasNeutral && (table[i][j] == j + 1 && table[j][i] == j + 1);
+                    hasIdentity = hasIdentity && (table[i][j] == j + 1 && table[j][i] == j + 1);
                 }
-                if (hasNeutral)
+                if (hasIdentity)
                 {
                     return table[i][i];
                 }
@@ -97,21 +97,21 @@ namespace Specifications
             return null;
         }
 
-        static bool AreAllElementsHasInverse(int[][] table, int? neutral)
+        static bool AreAllElementsHasInverse(int[][] table, int? identityElem)
         {
-            if (neutral == null)
+            if (identityElem == null)
             {
                 return false;
             }
             bool result = true;
             for (int i = 0; i < table.Length; ++i)
             {
-                bool hasInvert = false;
+                bool hasInverse = false;
                 for (int j = 0; j < table.Length; ++j)
                 {
-                    hasInvert = hasInvert || (table[i][j] == neutral && table[j][i] == neutral);
+                    hasInverse = hasInverse || (table[i][j] == identityElem && table[j][i] == identityElem);
                 }
-                result = result && hasInvert;
+                result = result && hasInverse;
             }
             return result;
         }
