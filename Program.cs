@@ -91,7 +91,7 @@ namespace Specifications
                 }
                 if (hasIdentity)
                 {
-                    return table[i][i];
+                    return i + 1;
                 }
             }
             return null;
