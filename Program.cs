@@ -85,9 +85,9 @@ namespace Specifications
             for (int i = 0; i < table.Length; ++i)
             {
                 bool hasIdentity = true;
-                for (int j = i + 1; j < table.Length; ++j)
+                for (int j = 0; j < table.Length; ++j)
                 {
-                    hasIdentity = hasIdentity && (table[i][j] == j + 1 && table[j][i] == j + 1);
+                    hasIdentity = hasIdentity && ((table[i][j] == j + 1) && (table[j][i] == j + 1));
                 }
                 if (hasIdentity)
                 {
